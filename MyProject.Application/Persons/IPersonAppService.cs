@@ -11,5 +11,6 @@ namespace MyProject.Persons
     public interface IPersonAppService: IApplicationService
     {
         GetPersonsOutput GetPersons();
+        int CreatePerson(CreatePersonInput dto);
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MyProject.Persons.Dtos;
 using AutoMapper;
+using MyProject.Entities;
 
 namespace MyProject.Persons
 {
@@ -17,6 +18,13 @@ namespace MyProject.Persons
         public PersonAppService(IPersonRepository personRepositoryy)
         {
             _personRepository = personRepositoryy;
+        }
+
+        public int CreatePerson(CreatePersonInput dto)
+        {
+            var entity = Mapper.Map<Person>(dto);
+
+            return _personRepository.InsertAndGetId(entity);
         }
 
         public GetPersonsOutput GetPersons()

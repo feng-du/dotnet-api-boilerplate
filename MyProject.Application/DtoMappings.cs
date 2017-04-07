@@ -16,6 +16,7 @@ namespace MyProject
             //I specified mapping for AssignedPersonId since NHibernate does not fill Task.AssignedPersonId
             //If you will just use EF, then you can remove ForMember definition.
             mapper.CreateMap<Person, PersonDto>();
+            mapper.CreateMap<CreatePersonInput, Person>();
         }
     }
 }

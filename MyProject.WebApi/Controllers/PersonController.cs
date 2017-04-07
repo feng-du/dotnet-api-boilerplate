@@ -25,12 +25,11 @@ namespace MyProject.Controllers
             return _service.GetPersons();
         }
 
-        public GetPersonsOutput Post(CreatePersonInput input)
+        public object Post(CreatePersonInput input)
         {
-            Logger.Debug(input.ToString());
+            var result = _service.CreatePerson(input);
 
-            //TODO...
-            return new GetPersonsOutput();
+            return new { Id = result };
         }
     }
 
